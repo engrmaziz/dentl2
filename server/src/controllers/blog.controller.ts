@@ -14,7 +14,14 @@ function slugify(text: string): string {
 }
 
 function estimateReadTime(content: string): number {
-  const words = content.replace(/<[^>]+>/g, '').split(/\s+/).length;
+  // Prepend space before each '<' to prevent word merging when tag is removed,
+  // then strip all HTML tags (including unclosed ones), then count words.
+  const text = content
+    .replace(/</g, ' <')
+    .replace(/<[^>]*>/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+  const words = text.split(/\s+/).filter((w) => w.length > 0).length;
   return Math.max(1, Math.ceil(words / 200));
 }
 
