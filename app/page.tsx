@@ -1,65 +1,47 @@
-import Image from "next/image";
+import type { Metadata } from "next";
+import HeroCanvasLoader from "@/components/three/HeroCanvasLoader";
 
-export default function Home() {
+export const metadata: Metadata = {
+  title: "Dentl Clinic | Precision Meets Warmth",
+  description: "A luxury dental clinic where precision meets warmth. Expert cosmetic, restorative, and general dentistry in London.",
+};
+
+export default function HomePage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <main>
+      <section style={{ position: "relative", minHeight: "100vh", display: "flex", alignItems: "center", backgroundColor: "var(--ink)", overflow: "hidden" }}>
+        <HeroCanvasLoader />
+        <div className="container" style={{ position: "relative", zIndex: 1, paddingTop: "120px", paddingBottom: "80px" }}>
+          <p style={{ fontFamily: "var(--font-body)", fontSize: "var(--text-xs)", letterSpacing: "0.3em", textTransform: "uppercase", color: "var(--gold)", marginBottom: "1.5rem" }}>
+            London&apos;s Premier Dental Studio
           </p>
+          <h1 style={{ fontFamily: "var(--font-display)", fontSize: "var(--text-hero)", fontWeight: 400, color: "var(--ivory)", lineHeight: "var(--leading-tight)", maxWidth: "800px", marginBottom: "2rem" }}>
+            Precision<br />
+            <em style={{ color: "var(--gold)", fontStyle: "italic" }}>meets warmth.</em>
+          </h1>
+          <p style={{ fontFamily: "var(--font-body)", fontSize: "var(--text-md)", color: "rgba(247,243,238,0.7)", lineHeight: "var(--leading-loose)", maxWidth: "480px", marginBottom: "3rem" }}>
+            Exceptional dental care crafted with the artistry of a design studio and the rigour of a private clinic.
+          </p>
+          <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
+            <a href="/contact" style={{ display: "inline-flex", alignItems: "center", padding: "0.9rem 2rem", backgroundColor: "var(--gold)", color: "var(--ink)", fontFamily: "var(--font-body)", fontSize: "var(--text-xs)", fontWeight: 600, letterSpacing: "0.15em", textTransform: "uppercase", borderRadius: "2px" }}>
+              Book Appointment
+            </a>
+            <a href="/services" style={{ display: "inline-flex", alignItems: "center", padding: "0.9rem 2rem", border: "1.5px solid rgba(247,243,238,0.3)", color: "var(--ivory)", fontFamily: "var(--font-body)", fontSize: "var(--text-xs)", fontWeight: 500, letterSpacing: "0.15em", textTransform: "uppercase", borderRadius: "2px" }}>
+              Explore Services
+            </a>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+      <section style={{ backgroundColor: "var(--mist)", padding: "4rem 0", borderBottom: "1px solid var(--ash)" }}>
+        <div className="container" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: "2rem", textAlign: "center" }}>
+          {[{ value: "18+", label: "Years Experience" }, { value: "4,200+", label: "Happy Patients" }, { value: "14", label: "Dental Services" }, { value: "6", label: "Expert Doctors" }].map(({ value, label }) => (
+            <div key={label}>
+              <p style={{ fontFamily: "var(--font-display)", fontSize: "var(--text-xl)", color: "var(--gold)", fontWeight: 400, marginBottom: "0.25rem" }}>{value}</p>
+              <p style={{ fontFamily: "var(--font-body)", fontSize: "var(--text-xs)", letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--charcoal)" }}>{label}</p>
+            </div>
+          ))}
         </div>
-      </main>
-    </div>
+      </section>
+    </main>
   );
 }
