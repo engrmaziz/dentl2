@@ -7,9 +7,10 @@ interface BadgeProps {
   variant?: "gold" | "ink" | "ivory" | "mist" | "error" | "success";
   size?: "sm" | "md";
   className?: string;
+  style?: React.CSSProperties;
 }
 
-export default function Badge({ children, variant = "gold", size = "sm", className = "" }: BadgeProps) {
+export default function Badge({ children, variant = "gold", size = "sm", className = "", style }: BadgeProps) {
   const colors: Record<string, string> = {
     gold:    "background-color: rgba(184,149,106,0.15); color: var(--gold); border: 1px solid rgba(184,149,106,0.3);",
     ink:     "background-color: var(--ink); color: var(--ivory);",
@@ -41,6 +42,7 @@ export default function Badge({ children, variant = "gold", size = "sm", classNa
             return [camel, v];
           })
         ) as React.CSSProperties),
+        ...style,
       }}
     >
       {children}
