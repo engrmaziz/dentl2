@@ -45,7 +45,7 @@ export default function Input({
         shakeRef.current,
         { x: 0 },
         {
-          x: [-6, 6, -4, 4, -2, 2, 0],
+          x: [-6, 6, -4, 4, -2, 2, 0] as unknown as number,
           duration: 0.4,
           ease: "power2.inOut",
         }
