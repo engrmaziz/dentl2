@@ -104,6 +104,19 @@
   --z-nav:     100;
   --z-overlay: 200;
   --z-cursor:  9999;
+
+  /* Admin dark palette */
+  --admin-bg:       #0F1117;
+  --admin-surface:  #1A1D27;
+  --admin-elevated: #222636;
+  --admin-border:   #2E3347;
+  --admin-text:     #E2E8F0;
+  --admin-muted:    #8892A4;
+  --admin-gold:     #B8956A;
+  --admin-success:  #2DD4BF;
+  --admin-warning:  #FBBF24;
+  --admin-danger:   #F87171;
+  --admin-info:     #60A5FA;
 }
 
 /* ─── Modern CSS Reset ───────────────────────────────────────────────── */
